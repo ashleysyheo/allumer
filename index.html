@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="icon" href="./favicon.ico" />
+    <title>Allumer</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="background"></div>
+        <div class="ground"></div>
+
+        <div class="lighton"></div>
+
+        <div class="element">
+            <div class="sub-light"></div>
+            <div id="light"></div>
+            <svg class="s1">
+                <path id="t1" d="M0,0 40,220 500,0 " />
+            </svg>
+        </div>
+
+        <div class="onoff"></div>
+        <div class="lightoff"></div>
+    </div>
+    <script>
+        var colors = ['rgba(255,241,000,1) 0%, rgba(000,255,254,1) 100%','rgba(255,096,096,1) 0%, rgba(094,129,255,1) 100%',
+                    'rgba(093,167,255,1) 0%, rgba(226,124,255,1) 100%', 'rgba(255,080,094,1) 0%, rgba(255,226,082,1) 100%',
+                    'rgba(034,193,195,1) 0%, rgba(253,187,045,1) 80%', 'rgba(000,093,255,1) 0%, rgba(000,244,128,1) 100%',
+                    'rgba(147,165,207,1) 0%, rgba(228,239,233,1) 100%', 'rgba(000,255,166,1) 0%, rgba(137,247,254,1) 100%',
+                    'rgba(196,082,255,1) 0%, rgba(255,219,234,1) 100%', '#CA26FF 0%, #FFF3B0 100%', '#3677FF 0%, #92FFC0 100%',
+                    '#FFF886 0%, #F072B6 100%', '#1904E5 0%, #FAB2FF 100%', '#F067B4 0%, #81FFEF 100%', '#465EFB 0%, #FFD3A5 100%',
+                    '#a1c4fd 0%, #fecfef 100%', '#6991c7 0%, #e2d1c3 100%', '#ff5f6d 0%, #c4e0e5 100%'];
+
+        function color() {
+            var random_color = colors[Math.floor(Math.random() * colors.length)];
+            document.getElementById("light").style.background = "radial-gradient(circle, " + random_color + ")";
+
+            if (random_color.length < 25) {
+                document.getElementById("t1").style.fill = random_color.substr(12, 7);
+                console.log(random_color);
+            }
+            else {
+                document.getElementById("t1").style.fill = random_color.substr(24, 19);
+                console.log(random_color);
+            }
+        }
+
+        color();
+
+        var interval = setInterval(
+            function() {
+                color();
+            }, 12000);
+
+
+    </script>
+
+
+</body>
+
+</html>

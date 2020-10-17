@@ -1,0 +1,220 @@
+html, body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+.main {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: #3e3e3e;
+    z-index: 2;
+}
+
+/*
+.background {
+    position: absolute;
+    bottom: 220px;
+    height: calc(100vh - 220px);
+    width: 100vw;
+    background-color: #292929; /*rgba(94, 129, 255, .5); ;
+}*/
+
+
+
+.background {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: calc(100vh - 470px);
+    background-color: #292929;
+    animation-name: background-light;
+}
+
+.background::after {
+    content: "";
+    background-color: #292929;
+    animation-name: background-light;
+    position: absolute;
+    width: calc(50vw - 75px);
+    height: 250px;
+    top: calc(100vh - 470px);
+    left: 0;
+}
+
+.background::before {
+    content: "";
+    background-color: #292929;
+    animation-name: background-light;
+    position: absolute;
+    width: calc(50vw - 75px);
+    height: 250px;
+    top: calc(100vh - 470px);
+    right: 0;
+}
+
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    height: 220px;
+    width: 100vw;
+    background-color: #1a1a1a/*#949494*/ ;
+    z-index: 5;
+}
+
+@keyframes lighton {
+    0% {
+        background-color: black;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
+
+#light {
+    position: absolute;
+    bottom: 220px;
+    left: calc(50vw - 250px);
+    height: 500px;
+    width: 500px;
+    border-top-left-radius: 250px;
+    border-top-right-radius: 250px;
+    /*background: radial-gradient(circle,#ff5f6d 0%, #c4e0e5 100%);*/
+    animation-name: slidein;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    z-index: 3;
+}
+
+.sub-light {
+    position: absolute;
+    bottom: 215px;
+    left: calc(50vw - 75px);
+    height: 255px;
+    width: 150px;
+    background-color: #292929; /*rgba(94, 129, 255, .5);*/
+    opacity: 50%;
+    mix-blend-mode: overlay;  /*difference*/
+    z-index: 4;
+}
+
+.s1 {
+    position: absolute;
+    bottom: 0;
+    left: calc(50vw - 250px);
+    height: 220px;
+    width: 500px;
+    animation-name: s;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    z-index: 5;
+}
+
+#t1 {
+    animation-name: t;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    opacity: 50%;
+}
+
+
+
+@keyframes s {
+    0% {
+        width: 500px;
+        left: calc(50vw - 250px);
+    }
+
+    25% {
+        width: 1000px;
+        left: 16.8px;
+    }
+
+    50% {
+        width: 1000px;
+        left: calc(35vw - 250px);
+    }
+
+    75% {
+        width: 1032px;
+        left: calc(100vw - 1048.8px);
+    }
+
+    100% {
+        width: 500px;
+        left: calc(50vw - 250px);
+    }
+}
+
+@keyframes t {
+    0% {
+        d: path("M0,0 40,220 500,0 ") ;
+    }
+
+    25% {
+        d: path("M0,0 613,220 500,0 ");
+    }
+
+    50% {
+        d: path("M0,0 291,220 500,0 ");
+    }
+
+    75% {
+        d: path("M532,0 0,220 1030,0");
+    }
+
+    100% {
+        d: path("M0,0 40,220 500,0 ");
+    }
+}
+
+@keyframes slidein {
+    0% {
+        left: calc(50vw - 250px);
+    }
+
+    10% {
+    }
+
+    25% {
+        left: 16.8px;
+    }
+
+    50% {
+        left: calc(35vw - 250px);
+    }
+
+    75% {
+        left: calc(100vw - 516.8px);
+    }
+
+    100% {
+        left: calc(50vw - 250px);
+    }
+}
+
+.onoff {
+    position: absolute;
+    bottom: 220px;
+    left: calc(50vw - 75px);
+    height: 250px;
+    width: 150px;
+    background-color: transparent; /*rgba(94, 129, 255, .5);*/
+    z-index: 15;
+}
+
+.lightoff {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: transparent;
+    z-index: 14;
+}
+
+.onoff:hover + .lightoff {
+    transition: .1s ease-in-out;
+    background-color: black;
+}
